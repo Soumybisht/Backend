@@ -11,7 +11,7 @@ const userSchema = new Schema(
         unique: true,
         lowercase: true,
         trim: true,
-        index: true
+        index: true //increasee the speed of searching but it is quite expensive
     },
     email : {
         type: String,

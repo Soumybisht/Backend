@@ -12,7 +12,15 @@ app.use(cors({
 app.use(express.json({limit:"16Kb"})) //allows data in json form from middlewares
 app.use(express.urlencoded({extended: true,limit:"16Kb"}));//allow data from URL(url data is in encoded form) 
 app.use(express.static("public")) //for storing public data like images favicon which can be accessed by all
-
 app.use(cookieParser())
 
-export default app;
+
+//routes import
+
+import userRouter from "./routes/user.routes.js";
+
+//routes declaration
+app.use("/api/v1/users",userRouter);
+
+
+export {app};
