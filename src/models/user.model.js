@@ -54,7 +54,7 @@ const userSchema = new Schema(
 });
 userSchema.pre("save",async function(next){ //just before saving data(there are other functonalities as well)
     if(!this.isModified("password")) return next();
-    this.password = bcrypt.hash(this.password,10)
+    this.password = await bcrypt.hash(this.password,10)
     next();
 }) //we used async function becuase this process may take time and we also have to use next variable everytime we use a middleware
 
